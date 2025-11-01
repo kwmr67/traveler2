@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+
   def index
     @users = User.page(params[:page]).per(5).reverse_order
   end
@@ -25,7 +27,6 @@ class UsersController < ApplicationController
           @entry = Entry.new
         end
       end
-      @post = Post.new
   end
 
   def edit

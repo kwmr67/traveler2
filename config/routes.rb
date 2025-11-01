@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:show, :edit, :update]
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show]
   

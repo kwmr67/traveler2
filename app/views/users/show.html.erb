@@ -14,8 +14,8 @@
                             <a href="/rooms/<%= @room_id %>" class="btn btn-primary btn-sm">DMを送る</a>
                         </p>
                     <% else %>
-                        <%= form_for @room, url: rooms_path do |f| %>
-                            <%= f.fields_for :entries, @entry do |e| %>
+                        <%= form_with @room do |f| %>
+                            <%= fields_for @entry do |e| %>
                                 <%= e.hidden_field :user_id, value: @user.id %>
                             <% end %>
                             <%= f.submit "DMを始める", class:"btn btn-primary btn-sm" %>
